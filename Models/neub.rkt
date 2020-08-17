@@ -27,4 +27,20 @@
 
 
 
+;;judgement forms for the natural language
+(define-judgment-form nat
+  #:mode (N= I I)
+  #:contract (N= N N)
+  [----- "zero"
+         (N= Zero Zero)]
+  [
+   (where (Plus1 N_0) N_0)
+   (where (Plus1 N_1) N_1)
+   (N= N_0 N_1)
+   ------- "Plus1"
+   (N= N_0 N_1)])
+
+(judgment-holds (N= Zero Zero))
+(judgment-holds (N= Zero Zero))
+
 
