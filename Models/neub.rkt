@@ -128,10 +128,21 @@
 (apply-reduction-relation step (term ((#true ∧ #false) ∧ (#false ∨ #true))))
 
 
+(define-language Λ
+  [e ::= (e e) x (λ x e)]
+  [x ::= variable-not-otherwise-mentioned]
+
+  #:binding-forms
+  (λ x_0 e_0 #:refers-to x_0))
                           
-                         
-                                    
-                                            
+(alpha-equivalent? Λ
+                   (term (λ x x))
+                   (term (λ y y)))
+;;#true
+
+;;some gap here
+;;meed to look into binding forms a lil more deeply. 
+                                                                            
 
         
 
